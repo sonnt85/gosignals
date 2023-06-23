@@ -13,17 +13,20 @@ import (
 
 // convert a signal name to signal
 func ToSignal(signalName string) (os.Signal, error) {
-	if signalName == "HUP" {
+	if !strings.HasPrefix(signalName, "SIG") {
+		signalName = fmt.Sprintf("SIG%s", signalName)
+	}
+	if signalName == "SIGHUP" {
 		return syscall.SIGHUP, nil
-	} else if signalName == "INT" {
+	} else if signalName == "SIGINT" {
 		return syscall.SIGINT, nil
-	} else if signalName == "QUIT" {
+	} else if signalName == "SIGQUIT" {
 		return syscall.SIGQUIT, nil
-	} else if signalName == "KILL" {
+	} else if signalName == "SIGKILL" {
 		return syscall.SIGKILL, nil
-	} else if signalName == "USR1" {
+	} else if signalName == "SIGUSR1" {
 		return nil, errors.New("signal USR1 is not supported in windows")
-	} else if signalName == "USR2" {
+	} else if signalName == "SIGUSR2" {
 		return nil, errors.New("signal USR2 is not supported in windows")
 	} else {
 		return syscall.SIGTERM, nil
