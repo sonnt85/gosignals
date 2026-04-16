@@ -33,6 +33,10 @@ err = gosignals.Kill(proc, sig, true) // true = send to process group
 - `ToSignal(signalName string) (os.Signal, error)` — convert a signal name to `os.Signal`; the `SIG` prefix is added automatically if missing; falls back to `SIGTERM` for unknown names on Unix
 - `Kill(process *os.Process, sig os.Signal, sigChildren bool) error` — send a signal to a process; on Unix with `sigChildren=true`, negates the PID to target the process group; on Windows uses `taskkill /F /T`
 
+## Author
+
+**sonnt85** — [thanhson.rf@gmail.com](mailto:thanhson.rf@gmail.com)
+
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
