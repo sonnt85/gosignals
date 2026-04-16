@@ -1,5 +1,7 @@
 # gosignals
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/sonnt85/gosignals.svg)](https://pkg.go.dev/github.com/sonnt85/gosignals)
+
 Cross-platform OS signal utilities — convert signal names to `os.Signal` values and send signals to processes with optional child-process propagation.
 
 ## Installation
